@@ -5,6 +5,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def new
@@ -41,7 +42,7 @@ class BlogPostsController < ApplicationController
   	@blog_post.destroy
 
   	respond_to do |format| 
-  		format.html { redirect_to blog_post_url, notice: "Your Blog Post was successfully DESTROYED!"}
+  		format.html { redirect_to blog_posts_url, notice: "Your Blog Post was successfully DESTROYED!"}
   	end
   end
 

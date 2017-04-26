@@ -5,13 +5,34 @@
 
 	<div class="panel-body">
 	<p> <%= @blog_post.author %></p>
-	<p> <%= @blog_post_entry %></p>
+	<p> <%= time_ago_in_words(@blog_post.created_at) %> ago</p>
+	<p> <%= @blog_post.blog_entry %></p>
 	</div>
 
 	<div class="panel-footer">
 	<%= link_to "Edit", edit_blog_post_path(@blog_post), class: "btn btn-warning" %>
-	<%= link_to "Back", blog_posts_path, class: "btn btn-primary" %>
+	<%= link_to "All Blog Posts", blog_posts_path, class: "btn btn-primary" %>
 	</div>
 </div>
+
+<div class="panel panel-success">
+	<div class="panel-heading">
+		Make a Comment
+	</div>
+	<div class="panel-body">
+		<%= render 'comments/form' %>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+	Comments
+	</div>
+	<div class="panel-body">
+		<%= render 'comments/comment' %>
+	</div>
+</div>
+
+
 
 
